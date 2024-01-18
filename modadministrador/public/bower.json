@@ -1,0 +1,29 @@
+{
+  "name": "modadministrador",
+  "authors": [
+    "camilocalderont <camilocalderont@gmail.com>"
+  ],
+  "description": "Dependencias CSS y JS",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "datatables.net": "1.10.19",
+    "datatables.net-bs": "2.1.1",
+    "datatables.net-responsive": "2.2.3",
+    "datatables.net-responsive-bs": "2.2.3",
+    "datatables.net-buttons-dt": "1.5.3",
+    "jszip": "3.1.5",
+    "font-awesome": "fontawesome#4.7.0",
+    "sweetalert2": "7.3.5",
+    "lazy-json-viewer": "^1.1.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

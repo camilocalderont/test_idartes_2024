@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  # servicio 1: La base de datos
+  serv-test-mariadb:
+    image: mariadb:10.3
+    container_name: serv-test-mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 6033:3306
+    volumes:
+      - ./MariaDB/schemas:/var/lib/mysql
+    networks:
+      - red_pandora
+  # servicio 2: La instalación de apache
+  serv-test-administrador:
+    image: idartestecnologia/phpoci8:72
+    container_name: serv-test-administrador
+    restart: always
+    volumes:
+      - ./modadministrador:/var/www/html
+    ports:
+      - "4321:80"
+      - "4431:443"    
+    networks:
+      - red_pandora
+    # depends_on indica que se cree primero la bd (servicio 1)
+    depends_on:
+      - serv-test-mariadb
+# se confirman los volumenes
+volumes:
+  MariaDB:
+networks:
+  red_pandora:
+    name: red_pandora
